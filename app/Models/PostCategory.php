@@ -17,4 +17,9 @@ class PostCategory extends Model
     'description',
     'is_visible',
   ];
+
+  public function posts()
+  {
+    return $this->hasMany(Post::class,'category_id');
+  }
 }

@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostCategoryResource\Pages;
-use App\Filament\Resources\PostCategoryResource\RelationManagers;
+use App\Filament\Resources\PostCategoryResource\RelationManagers\PostsRelationManager;
 use App\Models\PostCategory;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -83,7 +83,7 @@ class PostCategoryResource extends Resource
   public static function getRelations(): array
   {
     return [
-      //
+      PostsRelationManager::class,
     ];
   }
 

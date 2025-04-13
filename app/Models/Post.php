@@ -27,7 +27,7 @@ class Post extends Model
     return $this->belongsTo(PostCategory::class);
   }
 
-  public function author()
+  public function auther()
   {
     return $this->belongsTo(User::class, 'created_by','id');
   }
@@ -35,5 +35,10 @@ class Post extends Model
   public function tags()
   {
     return $this->belongsToMany(PostTag::class, 'post_tag', 'post_id', 'tag_id');
+  }
+
+  public function comments()
+  {
+    return $this->hasMany(PostComment::class);
   }
 }

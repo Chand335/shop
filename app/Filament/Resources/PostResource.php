@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\PostCommentResource\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\Pages\ViewPost;
 use App\Filament\Resources\PostResource\RelationManagers;
@@ -106,7 +107,7 @@ class PostResource extends Resource
             'archived' => 'secondary',
           }),
         // TextColumn::make('category.name')->label('Category'),
-        TextColumn::make('author.name')
+        TextColumn::make('auther.name')
           ->formatStateUsing(fn(string $state) => ucfirst($state))->label('Auther'),
         TextColumn::make('published_at')->date()->label('Published Date'),
       ])
@@ -144,7 +145,7 @@ class PostResource extends Resource
   public static function getRelations(): array
   {
     return [
-      //
+      CommentsRelationManager::class
     ];
   }
 
@@ -172,7 +173,7 @@ class PostResource extends Resource
                 TextEntry::make('published_at')->badge()->date('M d, Y'),
                 TextEntry::make('auther.name'),
                 TextEntry::make('category.name'),
-                TextEntry::make('tags')->badge()
+                TextEntry::make('tags.name')->badge()
                 ->separator(','),
               ]),
             Tabs\Tab::make('Edit Post')

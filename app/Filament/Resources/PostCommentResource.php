@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostCommentResource\Pages;
-use App\Filament\Resources\PostCommentResource\RelationManagers;
 use App\Models\PostComment;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -91,7 +90,6 @@ class PostCommentResource extends Resource
   public static function getRelations(): array
   {
     return [
-      //
     ];
   }
 

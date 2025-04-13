@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostTagResource\Pages;
 use App\Filament\Resources\PostTagResource\RelationManagers;
+use App\Filament\Resources\PostTagResource\RelationManagers\PostsRelationManager;
 use App\Models\PostCategory;
 use App\Models\PostTag;
 use Filament\Forms;
@@ -76,7 +77,7 @@ class PostTagResource extends Resource
   public static function getRelations(): array
   {
     return [
-      //
+      PostsRelationManager::class,
     ];
   }
 
