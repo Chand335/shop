@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-  use HasApiTokens, HasFactory, Notifiable, HasUuids;
+  use HasApiTokens, HasFactory, Notifiable, HasUuids,SoftDeletes;
 
-  // public $incrementing = false;
-  // protected $keyType = 'string';
   /**
    * The attributes that are mass assignable.
    *
@@ -45,14 +44,4 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
     'password' => 'hashed',
   ];
-
-  // protected static function boot()
-  // {
-  //   parent::boot();
-  //   static::creating(function ($model) {
-  //     if (empty($model->{$model->getKeyName()})) {
-  //       $model->{$model->getKeyName()} = (string) Str::uuid();
-  //     }
-  //   });
-  // }
 }

@@ -9,7 +9,7 @@ posts
 -image
 -status
 
-posts_categories
+post_category
 -name
 -slug
 -description
