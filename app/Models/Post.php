@@ -9,5 +9,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory,HasUuids,SoftDeletes;
+  use HasFactory, HasUuids, SoftDeletes;
+
+  protected $fillable = [
+    'title',
+    'slug',
+    'content',
+    'created_by',
+    'category_id',
+    'published_at',
+    'image',
+    'status',
+  ];
+
+  public function category()
+  {
+    return $this->belongsTo(PostCategory::class);
+  }
+
+  public function author()
+  {
+    return $this->belongsTo(User::class, 'created_by','id');
+  }
+
+  public function tags()
+  {
+    return $this->belongsToMany(PostTag::class, 'post_tag', 'post_id', 'tag_id');
+  }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('post_id')->constrained('posts')->onDelete('cascade');
             $table->foreignUuid('customer_id')->constrained('users')->onDelete('cascade');
-            $table->foreignUuid('parent_id')->constrained('post_comments')->onDelete('cascade');
+            $table->foreignUuid('parent_id')->nullable()->constrained('post_comments')->onDelete('cascade');
             $table->longText('content');
             $table->boolean('is_visible')->default(true);
             $table->boolean('is_approved')->default(true);

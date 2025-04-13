@@ -9,5 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PostCategory extends Model
 {
-    use HasFactory,HasUuids,SoftDeletes;
+  use HasFactory, HasUuids, SoftDeletes;
+
+  protected $fillable = [
+    'name',
+    'slug',
+    'description',
+    'is_visible',
+  ];
 }
