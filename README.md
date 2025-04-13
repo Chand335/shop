@@ -64,3 +64,8 @@ php artisan make:filament-resource PostTag
 
 php artisan make:filament-page ViewPost --resource=PostResource --type=ViewRecord
 php artisan make:filament-page ViewPostTag --resource=PostTagResource --type=ViewRecord
+
+php artisan make:filament-relation-manager PostCategoryResource posts title
+php artisan make:filament-relation-manager PostCommentResource comments content
+php artisan make:filament-relation-manager PostTagResource posts title
+php artisan make:filament-relation-manager PostTagResource posts title
